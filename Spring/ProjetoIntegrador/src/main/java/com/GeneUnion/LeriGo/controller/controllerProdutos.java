@@ -1,4 +1,4 @@
-package com.GeneUnion.LeriGo.Controller;
+package com.GeneUnion.LeriGo.controller;
 
 import java.util.List;
 
@@ -14,39 +14,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.GeneUnion.LeriGo.Model.ProdutoModel;
-import com.GeneUnion.LeriGo.Repository.ProdutoRepository;
+import com.GeneUnion.LeriGo.model.modelProdutos;
+import com.GeneUnion.LeriGo.repository.repositoryProdutos;
 
 @RestController
-@RequestMapping("/produto")
-public class ProdutoController {
+@RequestMapping("/produtos")
+public class controllerProdutos {
 
 	@Autowired
-	private ProdutoRepository repository;
+	private repositoryProdutos repository;
 	
 	@GetMapping
-	public ResponseEntity<List<ProdutoModel>> getAll(){
+	public ResponseEntity<List<modelProdutos>> getAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/id.{id}")
-	public ResponseEntity<ProdutoModel>getById(@PathVariable Long id){
+	public ResponseEntity<modelProdutos>getById(@PathVariable Long id){
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
 	@GetMapping("/nome.{nome}")
-	public ResponseEntity<List<ProdutoModel>> getByNome(@PathVariable String nome){
+	public ResponseEntity<List<modelProdutos>> getByNome(@PathVariable String nome){
 		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
 	}
 	
 	@PostMapping
-	public ResponseEntity<ProdutoModel> post (@RequestBody ProdutoModel produto){
+	public ResponseEntity<modelProdutos> post (@RequestBody modelProdutos produto){
 		return ResponseEntity.ok(repository.save(produto));
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<ProdutoModel> put (@RequestBody ProdutoModel produto){
+	public ResponseEntity<modelProdutos> put (@RequestBody modelProdutos produto){
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(repository.save(produto));
 	}

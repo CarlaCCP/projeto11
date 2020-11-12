@@ -1,23 +1,17 @@
-package com.GeneUnion.LeriGo.Model;
+package com.GeneUnion.LeriGo.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table (name="tb_produto")
-public class ProdutoModel {
-	
+@Table(name="tb_produtos")
+public class modelProdutos {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_produto;
+	private Long idProduto;
 	
 	@Column
 	@NotNull
@@ -39,20 +33,18 @@ public class ProdutoModel {
 	@NotNull
 	private String foto;
 	
-	@Column
-	@NotNull
-	private int id_categoria;
-	
 	@ManyToOne
-	@JsonIgnoreProperties("produtoModel")
-	private CategoriaModel categoriaModel;
+	@JsonIgnoreProperties("modelProdutos")
+	private modelCategoria categoria;
 
-	public Long getId_produto() {
-		return id_produto;
+	//Getters e Setters
+	
+	public Long getIdProduto() {
+		return idProduto;
 	}
 
-	public void setId_produto(Long id_produto) {
-		this.id_produto = id_produto;
+	public void setIdProduto(Long id_produto) {
+		this.idProduto = id_produto;
 	}
 
 	public String getNome() {
@@ -95,22 +87,12 @@ public class ProdutoModel {
 		this.foto = foto;
 	}
 
-	public int getId_categoria() {
-		return id_categoria;
+	public modelCategoria getCategoria() {
+		return categoria;
 	}
 
-	public void setId_categoria(int id_categoria) {
-		this.id_categoria = id_categoria;
+	public void setCategoria(modelCategoria categoria) {
+		this.categoria = categoria;
 	}
 
-	public CategoriaModel getCategoriaModel() {
-		return categoriaModel;
-	}
-
-	public void setCategoriaModel(CategoriaModel categoriaModel) {
-		this.categoriaModel = categoriaModel;
-	}
-
-	
-	
 }
