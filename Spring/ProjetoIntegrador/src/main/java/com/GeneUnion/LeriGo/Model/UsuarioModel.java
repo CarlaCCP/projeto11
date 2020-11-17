@@ -1,11 +1,18 @@
-package com.GeneUnion.LeriGo.model;
+package com.GeneUnion.LeriGo.Model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "tb_usuario")
-public class modelUsuario {
+public class UsuarioModel {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idUsuario;
@@ -53,5 +60,8 @@ public class modelUsuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
+	
+	
+	
 }
+
