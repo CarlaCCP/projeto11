@@ -13,7 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
-public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
+public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
 	private UserDetailsService userDetailsService;
@@ -31,7 +31,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/usuario/login").permitAll()
+		.antMatchers("/usuario/logar").permitAll()
 		.antMatchers("/usuario/cadastrar").permitAll()
 		.antMatchers(HttpMethod.GET, "/produto").permitAll()
 		.antMatchers("/produto/porId/{id}").permitAll()
@@ -43,4 +43,6 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 		.and().cors()
 		.and().csrf().disable();
 	}
+
+	
 }

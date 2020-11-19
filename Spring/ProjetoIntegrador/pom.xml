@@ -12,6 +12,7 @@
 	<groupId>com.GeneUnion.LeriGo</groupId>
 	<artifactId>LeriGo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+<!-- 	<packaging>jar</packaging> -->
 	<name>ProjetoIntegrador</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -20,15 +21,25 @@
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-
 		</dependency>
+
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
 		</dependency>
+
+
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
@@ -39,6 +50,7 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>

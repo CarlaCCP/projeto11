@@ -3,28 +3,26 @@ package com.GeneUnion.LeriGo.Security;
 import java.util.Collection;
 import java.util.List;
 
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.GeneUnion.LeriGo.Model.UsuarioModel;
+import com.GeneUnion.LeriGo.model.modelUsuario;
 
-public class UserDetailsImpl implements UserDetails {
+public class UserDetailsImpl implements UserDetails{
 
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 	private String userName;
-	
 	private String password;
+	
 	private List<GrantedAuthority> authorities;
 	
-	public UserDetailsImpl(UsuarioModel user) {
+	public UserDetailsImpl(modelUsuario user) {
 		
 		this.userName = user.getNome();
 		this.password = user.getSenha();
 	}
 
-	
 	public UserDetailsImpl() {
 		
 	}

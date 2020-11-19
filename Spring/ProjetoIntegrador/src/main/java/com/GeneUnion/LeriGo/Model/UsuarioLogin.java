@@ -1,4 +1,4 @@
-package com.GeneUnion.LeriGo.Model;
+package com.GeneUnion.LeriGo.model;
 
 public class UsuarioLogin {
 
@@ -41,6 +41,5 @@ public class UsuarioLogin {
 	public void setToken(String token) {
 		this.token = token;
 	}
-	
-	
+
 }

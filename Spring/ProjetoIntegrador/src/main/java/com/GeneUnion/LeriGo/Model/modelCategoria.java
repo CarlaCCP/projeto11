@@ -1,22 +1,17 @@
-package com.GeneUnion.LeriGo.Model;
+package com.GeneUnion.LeriGo.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "tb_categoria")
-public class CategoriaModel {
+public class modelCategoria {
+
+	//Inicio Colunas da Tabela
 	
 	@Column
 	@Id
@@ -29,18 +24,20 @@ public class CategoriaModel {
 	
 	@Column
 	@NotNull
-	private String destino; //doação ou 
+	private String destino;
 	
 	@Column
 	@NotNull
-	private String classificacao; //Masculino e Feminino
+	private String classificacao;
 	
-	@OneToMany(mappedBy = "categoriaModel", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("categoriaModel")
-	private List<ProdutoModel> produtoModel;
-	
-	
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("categoria")
+	private List<modelProdutos> modelProdutos;
 
+	//Fim Colunas da Tabela
+	
+	//Inicio Get's e Set's
+	
 	public Long getIdCategoria() {
 		return idCategoria;
 	}
@@ -73,13 +70,13 @@ public class CategoriaModel {
 		this.classificacao = classificacao;
 	}
 
-	public List<ProdutoModel> getProdutoModel() {
-		return produtoModel;
+	public List<modelProdutos> getModelProdutos() {
+		return modelProdutos;
 	}
 
-	public void setProdutoModel(List<ProdutoModel> produtoModel) {
-		this.produtoModel = produtoModel;
+	public void setModelProdutos(List<modelProdutos> modelProdutos) {
+		this.modelProdutos = modelProdutos;
 	}
-
 	
+	//Fim Get's e Set's
 }
